@@ -10,7 +10,7 @@
 #define PI atan(1)*4
 
 Individual::Individual(){
-
+    
 }
 Individual::Individual(int numGenes){
     this->numGenes=numGenes;
@@ -23,13 +23,13 @@ void Individual::Init_Individual(Range range[],std::default_random_engine e){
         std::uniform_real_distribution<double> u(range[i].get_Lower(),range[i].get_Upper());
         this->gene.push_back(Gene(u(e),range[i]));
     }
-    //    this->fitness=this->fitness2(gene[0].get_single(),gene[1].get_single(),gene[2].get_single(),gene[3].get_single());
+//    this->fitness=this->fitness2(gene[0].get_single(),gene[1].get_single(),gene[2].get_single(),gene[3].get_single());
     this->Caculate_fitness();
-    //    this->fitness=Function::f1(*this);
+//    this->fitness=Function::f1(*this);
 }
 void Individual::Caculate_fitness(){
-    //    this->fitness=this->fitness2(gene[0].get_single(),gene[1].get_single(),gene[2].get_single(),gene[3].get_single());
-    this->fitness=Function::ackley(*this);
+//    this->fitness=this->fitness2(gene[0].get_single(),gene[1].get_single(),gene[2].get_single(),gene[3].get_single());
+    this->fitness=Function::f8(*this);
 }
 
 double Individual::get_fitness(){
@@ -51,13 +51,12 @@ void Individual::variation(double probability){
         double temp=u(e);
         if(temp>=probability){
             continue;
-        }
-        else{
+        }else{
             std::uniform_real_distribution<double> ran(this->get_Gene(i).get_Range().get_Lower(),this->get_Gene(i).get_Range().get_Upper());
-            //            double change=ran(e);
-            //            std::uniform_real_distribution<double> ran1(-0.01,0.01);
+//            double change=ran(e);
+//            std::uniform_real_distribution<double> ran1(-0.01,0.01);
             double change1=ran(e);
-            if(change1<=5&&change1>=-5){
+            if(change1<=this->gene[i].get_Range().get_Upper()&&change1>=this->gene[i].get_Range().get_Lower()){
                 gene[i].set_single(change1);
             }
         }

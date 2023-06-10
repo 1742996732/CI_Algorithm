@@ -1,2 +1,3 @@
-# commonGA
-GA Algorithm
+# CI_Algorithm
+
+CI_Algorithm
