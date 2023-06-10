@@ -2,5 +2,5 @@
 
 CI_Algorithm
 
-  Due to the busy study, I have no time to organize git warehouse
+  Due to the busy study, I have no time to organize git Repository
   
